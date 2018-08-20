@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>View Product</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form *ngIf="product">
+    <ion-item>
+        id: <span>{{product.id}}</span> 
+    </ion-item>
+
+    <ion-item>
+      productId: <span>{{product.productId}}</span> 
+    </ion-item>
+
+    <ion-item>
+      Name: <span>{{product.name}}</span> 
+    </ion-item>
+
+    <ion-item>
+      Price: <span>{{product.price}}</span> 
+    </ion-item>
+
+    <button ion-button (click)="goBack()">Back</button>
+  </form>
+</ion-content>

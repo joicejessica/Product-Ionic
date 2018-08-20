@@ -1,0 +1,32 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/imgs/gift.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form>
+    <ion-item>
+      <ion-label color="primary" floating>Email</ion-label>
+      <ion-input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Password</ion-label>
+      <ion-input type="password" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <button ion-button block (click)="login()">Login</button>
+  </form>
+</ion-content>

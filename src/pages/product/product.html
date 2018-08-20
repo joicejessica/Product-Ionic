@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="onPageAdd()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+
+    <ion-title>
+      Product
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar></ion-searchbar>
+  <ion-item *ngFor="let product of products">
+    <ion-card >
+
+      <ion-item>
+        <h1>{{product.name}}</h1>
+      </ion-item>
+    
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small (click)="onPageView(product.id)">
+            <ion-icon name="eye"></ion-icon>
+            <div>View</div>
+          </button>
+        </ion-col>
+
+        <ion-col>
+          <button ion-button icon-start clear small (click)="onPageEdit(product.id)">
+            <ion-icon name="create"></ion-icon>
+            <div>Edit</div>
+          </button>
+        </ion-col>
+
+        <ion-col>
+          <button ion-button icon-start clear small (click)="delete(product.id)">
+            <ion-icon name="trash"></ion-icon>
+            <div>Delete</div>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    
+    </ion-card>
+    </ion-item>
+</ion-content>

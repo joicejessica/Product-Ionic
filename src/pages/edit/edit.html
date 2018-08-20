@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Product</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form *ngIf="product">
+    <ion-item>
+      id: <span>{{product.id}}</span> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>ProductId</ion-label>
+      <ion-input type="text" id="productId" name="productId" [(ngModel)]="product.productId"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Name</ion-label>
+      <ion-input type="text" id="name" name="name" [(ngModel)]="product.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" floating>Price</ion-label>
+        <ion-input type="text" id="Price" name="Price" [(ngModel)]="product.price"></ion-input>
+      </ion-item>
+
+    <button ion-button block (click)="save()">Save</button>
+  </form>
+</ion-content>
