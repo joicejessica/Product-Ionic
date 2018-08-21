@@ -16,17 +16,23 @@
 
 
 <ion-content padding>
-  <form>
+  <form [formGroup]="formgroup">
     <ion-item>
       <ion-label color="primary" floating>Email</ion-label>
-      <ion-input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"></ion-input>
+      <ion-input type="email" formControlName="em" class="form-control" id="email" name="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="em.hasError('required') && em.touched">
+      <p> *email is required</p>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary" floating>Password</ion-label>
-      <ion-input type="password" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" formControlName="pass" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="pass.hasError('required') && pass.touched">
+      <p> *password is required</p>
     </ion-item>
 
-    <button ion-button block (click)="login()">Login</button>
+    <button ion-button block (click)="login()" [disabled]="!formgroup.valid">Login</button>
   </form>
 </ion-content>

@@ -22,8 +22,16 @@ export class ProductProvider {
   }
 
   deleteById(id){
-  const index = PRODUCTS.indexOf(this.getProductsById(id));
-  PRODUCTS.splice(index,1);
+    const index = PRODUCTS.indexOf(this.getProductsById(id));
+    PRODUCTS.splice(index,1);
   }
+
+  createProduct(product)
+  {
+    PRODUCTS.push(product);
+  }
+
+
+
 
 }

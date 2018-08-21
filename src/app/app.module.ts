@@ -12,6 +12,7 @@ import { ViewPage } from '../pages/view/view';
 import { ProductPage } from '../pages/product/product';
 import { ProductProvider } from '../providers/product/product';
 import { HomePage } from '../pages/home/home';
+import { PopoverComponent } from '../components/popover/popover';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HomePage } from '../pages/home/home';
     EditPage,
     ViewPage,
     ProductPage,
-    HomePage
+    HomePage,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { HomePage } from '../pages/home/home';
     EditPage,
     HomePage,
     ViewPage, 
-    ProductPage
+    ProductPage,
+    PopoverComponent
   ],
   providers: [
     StatusBar,

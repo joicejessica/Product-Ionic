@@ -8,22 +8,39 @@
 
 
 <ion-content padding>
-  <form>
+  <form *ngIf="product" [formGroup]="formgroup">
+    <ion-item>
+      <ion-label color="primary" floating>Id</ion-label>
+      <ion-input type="text" formControlName="id" [(ngModel)]="product.id" name="id"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="id.hasError('required') && id.touched">
+      <p> *id is required</p>
+    </ion-item>
+    
     <ion-item>
       <ion-label color="primary" floating>ProductId</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" formControlName="productId" [(ngModel)]="product.productId" name="productId"></ion-input>
     </ion-item>
-
+    <ion-item *ngIf="productId.hasError('required') && productId.touched">
+      <p> *productId is required</p>
+    </ion-item>
+    
     <ion-item>
       <ion-label color="primary" floating>Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" formControlName="name" [(ngModel)]="product.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="name.hasError('required') && name.touched">
+      <p> *name is required</p>
     </ion-item>
 
-    <ion-item>
+      <ion-item>
         <ion-label color="primary" floating>Price</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="price" [(ngModel)]="product.price" name="price"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="price.hasError('required') && price.touched">
+        <p> *price is required</p>
       </ion-item>
 
-    <button ion-button block>Add Product</button>
+    <button ion-button block (click)="create(product)" [disabled]="!formgroup.valid">Add Product</button>
   </form>
 </ion-content>

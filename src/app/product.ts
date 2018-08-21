@@ -3,5 +3,4 @@ export class Product{
     name: string;
     price: number;
     productId: number;
-    version: number;
 }
