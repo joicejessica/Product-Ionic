@@ -21,41 +21,32 @@ export class AddPage {
   name: AbstractControl;
   price: AbstractControl;
 
-
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private productProvider: ProductProvider,
               private toastCtrl: ToastController,
               private formBuilder: FormBuilder)            
   {
+    //validation
     this.formgroup = formBuilder.group({
-      // id:['',Validators.required,Validators.minLength(8)],
-      // productId:['',Validators.required,Validators],
-      // name:['',Validators.required,Validators],
-      // price:['',Validators.required,Validators]
-
-      id:['', Validators.compose([Validators.required])],
       productId:['', Validators.compose([Validators.required])],
       name:['', Validators.compose([Validators.required])],
       price:['', Validators.compose([Validators.required])],
     });
 
-    this.id = this.formgroup.controls['id'];
     this.productId = this.formgroup.controls['productId'];
     this.name = this.formgroup.controls['name'];
     this.price = this.formgroup.controls['price'];
   }
 
   ionViewDidLoad() 
-  {
-    
-  }
+  { }
 
-  create(product)
-  {
-    this.productProvider.createProduct(product);
+  create(product){
+    this.productProvider.createProduct(product).subscribe
+    (product => this.product = product);
     this.navCtrl.push(ProductPage);
-    // console.log(this.product);
+    //show toast
     let toast = this.toastCtrl.create({
       message: 'Add Product successfully',
       duration: 3000,
@@ -67,5 +58,6 @@ export class AddPage {
     });
   
     toast.present();
+
   }
 }

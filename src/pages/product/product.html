@@ -16,7 +16,7 @@
   <ion-searchbar (ionInput)="setFilterProduct($event)">
     
   </ion-searchbar>
-    <ion-card *ngFor="let product of products">
+    <ion-card *ngFor="let product of product">
       <ion-row>
         <ion-item>
         <h1>{{product.name}}</h1>

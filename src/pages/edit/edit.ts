@@ -42,16 +42,25 @@ export class EditPage {
     this.getProductById(this.id);
   }
 
-  getProductById(id){
+  //----rest api ----
+  getProductById(id)
+  {
     id = this.navParams.get('id');
-    this.product = this.productProvider.getProductsById(id);
+    this.productProvider.getProductById(id).subscribe(product=>
+    {
+      this.product = product;
+    });
+    console.log(id);
   }
 
   save(id){
     id = this.navParams.get('id');
-    let updated = {id: this.product.id, producId: this.product.productId, name: this.product.name, price: this.product.price}
-    this.navCtrl.push(ProductPage);
+    this.productProvider.updateProduct(id, this.product).subscribe(product=>{
+      product = this.product
+      this.id = id
+    });
 
+    this.navCtrl.push(ProductPage);
     let toast = this.toastCtrl.create({
       message: 'Edit product successfully',
       duration: 3000,
@@ -64,5 +73,29 @@ export class EditPage {
   
     toast.present();
   }
+  //----dummy data----
+
+  // getProductById(id){
+  //   id = this.navParams.get('id');
+  //   this.product = this.productProvider.getProductsById(id);
+  // }
+
+  // save(id){
+  //   id = this.navParams.get('id');
+  //   let updated = {id: this.product.id, producId: this.product.productId, name: this.product.name, price: this.product.price}
+  //   this.navCtrl.push(ProductPage);
+
+  //   let toast = this.toastCtrl.create({
+  //     message: 'Edit product successfully',
+  //     duration: 3000,
+  //     position: 'top'
+  //   });
+  
+  //   toast.onDidDismiss(() => {
+  //     console.log('Dismissed toast');
+  //   });
+  
+  //   toast.present();
+  // }
 
 }

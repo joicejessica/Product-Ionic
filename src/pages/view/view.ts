@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductPage } from '../product/product';
 import { Product } from '../../app/product';
@@ -20,14 +20,14 @@ export class ViewPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewPage');
-    this.getProductById(this.id);
+    // this.getProductById(this.id);
     
   }
 
-  getProductById(id){
-    id = this.navParams.get('id');
-    this.product = this.productProvider.getProductsById(id);
-  }
+  // getProductById(id){
+  //   id = this.navParams.get('id');
+  //   this.product = this.productProvider.getProductsById(id);
+  // }
 
   goBack(){
     this.navCtrl.push(ProductPage);
