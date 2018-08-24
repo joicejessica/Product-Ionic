@@ -20,8 +20,17 @@ export class ViewPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewPage');
-    // this.getProductById(this.id);
+    this.getProductById(this.id);
     
+  }
+  getProductById(id)
+  {
+    id = this.navParams.get('id');
+    this.productProvider.getProductById(id).subscribe(product=>
+    {
+      this.product = product;
+    });
+    console.log(id);
   }
 
   // getProductById(id){
